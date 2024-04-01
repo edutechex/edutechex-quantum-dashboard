@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.ml-50p { margin-left: 50% !important; }
+.ml-30p { margin-left: 30% !important; }
+.ml-20p { margin-left: 20% !important; }
+.customBtn { background-color: #313d9c !important; }
+.customBtn:hover { background-color: #131B60 !important; }
+.uploadBox { width: 20rem; height: 24rem; border: solid gray 0.2px; border-radius: 5px;}
+.bg-blue { background-color: #131B60; }
+.pl-60p { padding-left: 60px; }

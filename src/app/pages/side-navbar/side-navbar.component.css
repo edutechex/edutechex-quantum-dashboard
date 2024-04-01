@@ -1,0 +1,31 @@
+mat-sidenav {
+    background-color: #313d9c;
+    width: 18%;
+    margin-top: 12px;
+    height: 100vh;
+  }
+  
+  .nav-pills .nav-link.active,
+  .nav-pills .show>.nav-link {
+    background-color: #182588;
+    border-radius: 3px;
+  }
+  
+  .nav-link:hover {
+    background-color: #182588;
+  }
+  
+  ::ng-deep .success-message {
+    background-color: #2AB2A6;
+    color: white;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  .mat-icon {
+    width: 30px !important;
+    height: 30px;
+  }
+  

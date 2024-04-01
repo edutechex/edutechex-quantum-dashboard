@@ -1,0 +1,58 @@
+<div class="overflow-hidden">
+    <div class="row">
+        <div class="col-lg-7 d-flex justify-content-center align-items-center">
+            <img src="assets/images/super-admin-login.svg" width="70%" alt="">
+        </div>
+        <div class="col-lg-5">
+            <div class="w-100 text-white px-5 formStyle" style="background-color:#313d9c ;">
+                 <!-- Logo -->
+                 <img src="assets/images/login-logo.svg" alt="EdutechEx logo"
+                 class="col-5 img-fluid d-block m-auto pt-4 mt-4">
+
+                 <!-- form -->
+                 <form [formGroup]="loginForm" class="mt-5 pt-4 d-grid col-10 mx-auto">
+                    <div class="mb-0">
+                        <label class="pt-4 mb-2 fs-4">Email Id</label>
+                        <!-- Email / UserName input filed -->
+                        <mat-form-field>
+                            <input matInput formControlName="userName" autocomplete="off" class=""
+                                placeholder="Email Id">
+                            <mat-error *ngFor="let validation of validationErrorMsg.userName">
+                                <mat-error class=""
+                                    *ngIf="loginForm.get('userName').hasError(validation.type) && (loginForm.get('userName').dirty || loginForm.get('userName').touched)">{{validation.message}}
+                                </mat-error>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="mb-0">
+                        <label class="pt-4 mb-2 fs-4">Password</label>
+                        <!-- Password input filed -->
+                        <mat-form-field>
+                            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password"
+                                autocomplete="off" class="" placeholder="Password">
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                                [attr.aria-pressed]="hide" class="custom-icon">
+                                <mat-icon class="">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                            <mat-error *ngFor="let validation of validationErrorMsg.password">
+                                <mat-error class=""
+                                    *ngIf="loginForm.get('password').hasError(validation.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">{{validation.message}}
+                                </mat-error>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="py-4">
+                        <button type="submit" (click)="onLogin()"
+                            class="btn cus-hover form-control fs-4 p-2">Login</button>
+                    </div>
+
+                    <div class="text-center p-1" *ngIf="!invalid && authenticating" style="font-size: large;">
+                        Authenticating...</div>
+                    <div class="text-center p-1" *ngIf="invalid" style="color: #f44336; font-size: large;" id="hideMe">
+                        Invalid Credentials!</div>
+                 </form>
+            </div>
+        </div>
+    </div>
+</div>

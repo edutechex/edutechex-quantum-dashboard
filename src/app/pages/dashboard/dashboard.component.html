@@ -1,0 +1,32 @@
+<section class="mx-2 p-3 card bg-white rounded-0">
+    <div class="ms-2 d-flex justify-content-between align-items-center">
+        <h2 class="ps-3">Admin Details</h2>
+      </div>
+      <mat-table  [dataSource]="adminDataSource" matSort>
+        <!-- id Column -->
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> S.No </mat-header-cell>
+          <mat-cell *matCellDef="let i = index"> {{this.paginator.pageIndex * this.paginator.pageSize + i + 1 }} </mat-cell>
+        </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Full Name </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.fullName}} </mat-cell>
+        </ng-container>
+        <!-- startDate Column -->
+        <ng-container matColumnDef="userName">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> User Name </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.userName}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="Password">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Password </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.password}} </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+      <!-- Pagination -->
+      <mat-paginator #paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons
+        aria-label="Contact Us details page"></mat-paginator>
+</section>
+
